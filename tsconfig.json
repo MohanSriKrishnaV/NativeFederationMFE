@@ -17,6 +17,16 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "paths": {
+      "shared-events": [
+        "projects/shared-events/src/public-api.ts",
+        "dist/shared-events"
+      ],
+      "shared-auth": [
+"projects/shared-auth/src/public-api.ts"
+      ],
+      "shared-library": [
+        "dist/shared-library"
+      ],
       "shared-ui": ["projects/shared-ui/src/public-api.ts"]
     },
     "target": "ES2022",

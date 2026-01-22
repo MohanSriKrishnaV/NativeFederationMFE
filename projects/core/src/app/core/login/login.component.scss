@@ -1,0 +1,74 @@
+/* Container centers the login card */
+.login-container {
+  height: 100vh; /* full viewport height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5f7fa; /* soft, neutral background */
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Card styling */
+.login-card {
+  width: 360px;
+  padding: 28px;
+  border-radius: 8px;
+  background: #ffffff; /* white card for contrast */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08); /* soft shadow for depth */
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  }
+}
+
+/* App title */
+.title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: #1e293b; /* dark gray, not black */
+}
+
+/* Subtitle */
+.subtitle {
+  margin: 6px 0 24px;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+/* Form fields */
+.full-width {
+  width: 100%;
+}
+
+/* Button styling */
+button.mat-raised-button {
+  height: 40px;
+  font-weight: 500;
+  font-size: 14px;
+  margin-top: 12px;
+}
+
+/* Input styling overrides */
+.mat-form-field {
+  margin-bottom: 16px;
+}
+
+/* Responsive tweaks for small screens */
+@media (max-width: 400px) {
+  .login-card {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .subtitle {
+    font-size: 12px;
+  }
+}

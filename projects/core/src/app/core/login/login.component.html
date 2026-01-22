@@ -1,0 +1,28 @@
+<div class="login-container">
+  <mat-card class="login-card">
+
+    <h2 class="title">MFE Workbench</h2>
+    <p class="subtitle">Sign in to continue</p>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Username</mat-label>
+      <input
+        matInput
+        placeholder="Enter your name"
+        [(ngModel)]="username"
+        (keyup.enter)="login()"
+      />
+    </mat-form-field>
+
+    <button
+      mat-raised-button
+      color="primary"
+      class="full-width"
+      [disabled]="!username || loading"
+      (click)="login()"
+    >
+      {{ loading ? 'Signing in…' : 'Login' }}
+    </button>
+
+  </mat-card>
+</div>

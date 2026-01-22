@@ -6,6 +6,7 @@ module.exports = withNativeFederation({
 
   exposes: {
     './Component': './projects/mfe1/src/app/app.component.ts',
+      './NotificationService': 'projects/mfe1/src/app/core/notification.service.ts',
   },
 
   shared: {

@@ -5,6 +5,8 @@ import { Router, RouterOutlet } from '@angular/router';
 import { ButtonComponent } from 'shared-ui';
 import { LayoutComponent } from './core/layout/layout.component';
 
+
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -21,6 +23,8 @@ export class AppComponent {
   showMenu = false;
 
   constructor(private router: Router){ {
+
+
     localStorage.getItem('token') ? this.showMenu = true : this.showMenu = false;
     if(!localStorage.getItem('token')){
       this.router.navigate(['home']);

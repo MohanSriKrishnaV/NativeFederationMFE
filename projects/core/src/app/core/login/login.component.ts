@@ -41,7 +41,7 @@ private auth: AuthService,
     // simulate async login
     setTimeout(() => {
       this.auth.login(this.username);
-      this.router.navigate(['/dashboard']);
+      this.router.navigate(['/home']);
     }, 500);
   }
 }

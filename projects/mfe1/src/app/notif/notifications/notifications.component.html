@@ -1,0 +1,45 @@
+<mat-card class="notifications-card">
+
+  <div class="header">
+    <h2>Notifications</h2>
+    <button
+      mat-button
+      color="warn"
+      (click)="clearAll()"
+      [disabled]="notifications().length === 0"
+    >
+      Clear All
+    </button>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <div *ngIf="notifications().length === 0" class="empty">
+    <mat-icon>notifications_off</mat-icon>
+    <p>No notifications yet</p>
+  </div>
+
+  <div
+    *ngFor="let n of notifications()"
+    class="notification"
+    [class.unread]="!n.read"
+  >
+    <mat-icon class="icon" [ngClass]="n.type.toLowerCase()">
+      {{ icon(n.type) }}
+    </mat-icon>
+
+    <div class="content">
+      <div class="message">{{ n.message }}</div>
+      <div class="time">{{ n.timestamp | date:'short' }}</div>
+    </div>
+
+    <button
+      mat-icon-button
+      *ngIf="!n.read"
+      (click)="markAsRead(n.id)"
+    >
+      <mat-icon>done</mat-icon>
+    </button>
+  </div>
+
+</mat-card>

@@ -6,12 +6,14 @@ module.exports = withNativeFederation({
 
   exposes: {
     './Component': './projects/mfe2/src/app/app.component.ts',
+      './OrdersModule': './projects/mfe2/src/app/orders/orders.module.ts',
   },
 
   shared: {
     ...shareAll({ singleton: true, strictVersion: true, requiredVersion: 'auto' }),
       'shared-ui': { singleton: true },
-
+      'shared-auth': { singleton: true },
+      'shared-events': { singleton: true },
   },
 
   skip: [

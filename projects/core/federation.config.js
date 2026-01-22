@@ -7,7 +7,6 @@ module.exports = withNativeFederation({
       'shared-ui': { singleton: true,strictVersion: true, requiredVersion: 'auto' },
       'shared-auth': { singleton: true,strictVersion: true, requiredVersion: 'auto' },
       'shared-events': { singleton: true,strictVersion: true, requiredVersion: 'auto' },
-
   },
 
   skip: [

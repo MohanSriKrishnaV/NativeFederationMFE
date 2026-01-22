@@ -1,0 +1,133 @@
+Perfect 👍
+A **single clear table** is exactly the right way to lock this in.
+
+Below is a **crisp, unambiguous feature-ownership table** you can treat as the **source of truth** for your project.
+If a feature is **not in a row for that MFE → it does NOT belong there**.
+
+---
+
+# 🧱 MFE FEATURE OWNERSHIP TABLE (FINAL)
+
+## 🟦 SHELL (HOST / INFRASTRUCTURE)
+
+| Category        | Features Shell OWNS               | Must NOT Do         |
+| --------------- | --------------------------------- | ------------------- |
+| Routing         | Load MFEs, route between them     | Business logic      |
+| Federation      | Remote loading, version isolation | Data ownership      |
+| Event Bus       | Publish / broadcast events        | Interpret events    |
+| Layout          | Header, sidebar, shell layout     | Domain UI           |
+| Auth (optional) | Token distribution                | Authorization rules |
+| Error Boundary  | Global error handling             | Feature fixes       |
+
+📌 **Shell is plumbing, not product**
+
+---
+
+## 🟩 ORDERS MFE (CORE DOMAIN)
+
+| Category    | Features Orders MFE OWNS          | Must NOT Do     |
+| ----------- | --------------------------------- | --------------- |
+| Order CRUD  | Create, approve, cancel orders    | Inventory logic |
+| Order State | Order lifecycle management        | KPIs            |
+| Validation  | Business rules (approve/cancel)   | Notifications   |
+| Persistence | Store orders (localStorage / API) | Event reactions |
+| Events      | Emit order events                 | Consume events  |
+
+**Events emitted**
+
+* `ORDER_CREATED`
+* `ORDER_APPROVED`
+* `ORDER_CANCELLED`
+
+---
+
+## 🟨 INVENTORY MFE (RESOURCE DOMAIN)
+
+| Category    | Features Inventory MFE OWNS      | Must NOT Do      |
+| ----------- | -------------------------------- | ---------------- |
+| Stock Mgmt  | Track available / reserved stock | Order creation   |
+| Reservation | Reserve / release inventory      | Dashboards       |
+| Thresholds  | Detect low stock                 | Notifications UI |
+| Persistence | Store inventory data             | Orchestration    |
+| Events      | Emit inventory events            | Create orders    |
+
+**Events emitted**
+
+* `INVENTORY_RESERVED`
+* `LOW_STOCK_ALERT`
+
+**Events consumed**
+
+* `ORDER_APPROVED`
+* `ORDER_CANCELLED`
+
+---
+
+## 🟧 DASHBOARD MFE (READ-ONLY AGGREGATOR)
+
+| Category      | Features Dashboard MFE OWNS | Must NOT Do        |
+| ------------- | --------------------------- | ------------------ |
+| KPIs          | Order counts, trends        | Mutate data        |
+| Metrics       | Inventory health            | Trigger workflows  |
+| Activity      | Recent events               | Emit domain events |
+| Visualization | Charts, tables              | Store state        |
+| Events        | Subscribe only              | Own data           |
+
+**Events consumed**
+
+* `ORDER_CREATED`
+* `ORDER_APPROVED`
+* `LOW_STOCK_ALERT`
+
+---
+
+## 🟥 NOTIFICATIONS MFE (UTILITY)
+
+| Category    | Features Notifications MFE OWNS | Must NOT Do      |
+| ----------- | ------------------------------- | ---------------- |
+| Alerts      | Toasts / browser notifications  | Business rules   |
+| Audit       | Notification history            | Data mutation    |
+| UX          | Mark read, filter               | Event emission   |
+| Persistence | Store notifications             | Workflow control |
+| Mapping     | Event → message mapping         | Domain decisions |
+
+**Events consumed**
+
+* `ORDER_CREATED`
+* `ORDER_APPROVED`
+* `LOW_STOCK_ALERT`
+
+---
+
+# 🧠 HARD RULES (NON-NEGOTIABLE)
+
+| Rule            | Meaning                      |
+| --------------- | ---------------------------- |
+| Single Owner    | Every feature has ONE MFE    |
+| Emit ≠ React    | Same MFE never does both     |
+| No Direct Calls | MFEs never import each other |
+| Events Only     | All collaboration via events |
+| Shell ≠ Brain   | Shell never decides meaning  |
+
+---
+
+# 🧪 Quick Sanity Test
+
+If you see code that:
+
+* Shows a toast → **Notifications MFE**
+* Creates an order → **Orders MFE**
+* Reserves stock → **Inventory MFE**
+* Displays KPIs → **Dashboard MFE**
+* Routes / loads → **Shell**
+
+---
+
+This table is **interview-grade** and **implementation-safe**.
+
+If you want, next we can:
+1️⃣ Convert this into a **README.md**
+2️⃣ Define **typed event contracts**
+3️⃣ Start coding **Notifications MFE correctly**
+
+Just say the word 👍

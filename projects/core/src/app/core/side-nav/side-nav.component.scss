@@ -1,0 +1,96 @@
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+}
+
+.avatar {
+  font-size: 40px;
+  width: 40px;
+  height: 40px;
+}
+
+.name {
+  font-weight: 600;
+}
+
+.role {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+
+/* Container */
+:host {
+  display: block;
+  height: 100%;
+  color: #e5e7eb;
+}
+
+/* User section */
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+}
+
+.avatar {
+  font-size: 40px;
+  width: 40px;
+  height: 40px;
+  color: #cbd5f5;
+}
+
+/* User text */
+.name {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.role {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+/* Divider spacing */
+mat-divider {
+  margin: 8px 0;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Navigation list */
+mat-nav-list {
+  padding: 8px 0;
+}
+
+/* Nav items */
+mat-nav-list a {
+  border-radius: 6px;
+  margin: 4px 8px;
+  color: #cbd5f5;
+}
+
+/* Icon inside nav item */
+mat-nav-list mat-icon {
+  margin-right: 12px;
+  color: #94a3b8;
+}
+
+/* Hover state */
+mat-nav-list a:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Active route */
+mat-nav-list a.active,
+mat-nav-list a.router-link-active {
+  background-color: rgba(255, 255, 255, 0.14);
+  color: #fff;
+}
+
+mat-nav-list a.active mat-icon,
+mat-nav-list a.router-link-active mat-icon {
+  color: #fff;
+}

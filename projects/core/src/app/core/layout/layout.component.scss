@@ -1,0 +1,65 @@
+/* Root container */
+.app-shell {
+  height: 100vh;
+  display: flex;
+}
+
+/* Side navigation */
+.app-sidenav {
+  width: 240px;
+  background: #1e293b;
+  color: #fff;
+  overflow-y: auto;
+  padding-top: 16px;
+}
+
+/* Main content wrapper */
+.app-main-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* Header */
+.app-header {
+  height: 56px;
+  flex-shrink: 0;
+  background: #1976d2;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  z-index: 10;
+}
+
+/* Routed page content */
+.app-content {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  background: #f5f7fa;
+}
+
+/* Footer */
+.app-footer {
+  height: 40px;
+  flex-shrink: 0;
+  background: #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+}
+
+/* Responsive: overlay sidenav for mobile */
+@media (max-width: 768px) {
+  .app-sidenav {
+    width: 200px;
+  }
+}
+
+.app-header {
+  display: block;
+}
+

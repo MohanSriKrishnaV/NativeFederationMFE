@@ -1,0 +1,28 @@
+<mat-sidenav-container class="app-shell">
+
+  <!-- SIDE NAV -->
+  <mat-sidenav #sidenav class="app-sidenav" mode="side" [opened]="true">
+    <app-side-nav></app-side-nav>
+  </mat-sidenav>
+
+  <!-- MAIN CONTENT -->
+  <mat-sidenav-content class="app-main-content">
+
+    <!-- HEADER -->
+    <header class="app-header">
+      <app-menu (toggleSidenav)="toggle()"></app-menu>
+    </header>
+
+    <!-- ROUTED CONTENT -->
+    <main class="app-content">
+      <router-outlet></router-outlet>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="app-footer">
+      © 2026 MFE Workbench
+    </footer>
+
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

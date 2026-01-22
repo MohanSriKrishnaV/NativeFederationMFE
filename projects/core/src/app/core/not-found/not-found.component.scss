@@ -1,0 +1,49 @@
+.not-found {
+  height: 100%;
+  min-height: calc(100vh - 96px); /* header + footer safe */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px;
+  background: #f5f7fa;
+}
+
+/* Icon illustration */
+.illustration mat-icon {
+  font-size: 96px;
+  width: 96px;
+  height: 96px;
+  color: #94a3b8;
+  margin-bottom: 16px;
+}
+
+/* 404 text */
+h1 {
+  font-size: 72px;
+  font-weight: 700;
+  margin: 0;
+  color: #1f2937;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 8px 0;
+  color: #374151;
+}
+
+p {
+  max-width: 420px;
+  margin: 12px 0 24px;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* Button spacing */
+a[mat-raised-button] {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}

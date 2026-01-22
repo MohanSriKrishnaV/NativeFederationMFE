@@ -1,1 +1,78 @@
 /* You can add global styles to this file, and also import other style files */
+/* 1. Box sizing – prevents layout bugs */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Full height foundation */
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+/* 3. Default font & background */
+body {
+  font-family: Roboto, Arial, sans-serif;
+  background-color: #f5f7fa;
+  color: #111827;
+}
+
+/* 4. Remove default button/input weirdness */
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+
+
+
+
+.app-shell {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-body {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+.app-sidenav {
+  flex-shrink: 0;
+}
+
+.app-content {
+  flex: 1;
+  overflow-y: auto;
+}
+
+
+
+.app-sidenav,
+.app-content {
+  overflow-y: auto;
+}
+
+
+
+
+.app-header {
+  z-index: 10;
+}
+
+.app-footer {
+  z-index: 5;
+}
+
+@media (max-width: 768px) {
+  .app-sidenav {
+    display: none;
+  }
+}

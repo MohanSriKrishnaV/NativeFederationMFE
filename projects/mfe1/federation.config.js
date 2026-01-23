@@ -12,7 +12,7 @@ module.exports = withNativeFederation({
   shared: {
     ...shareAll({ singleton: true, strictVersion: true, requiredVersion: 'auto' }),
       'shared-ui': { singleton: true },
-
+      'shared-events': { singleton: true },
   },
 
   skip: [

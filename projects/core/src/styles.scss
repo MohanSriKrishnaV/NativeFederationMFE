@@ -63,6 +63,9 @@ select {
 
 
 
+
+
+
 .app-header {
   z-index: 10;
 }
@@ -75,4 +78,21 @@ select {
   .app-sidenav {
     display: none;
   }
+}
+
+
+
+// .cdk-overlay-pane {
+//   justify-content: center;
+//   align-items: flex-end;
+// }
+
+
+.mat-mdc-snack-bar-container {
+  inset: auto auto auto auto !important;
+}
+
+
+.mat-mdc-snack-bar-container {
+  margin-top: 16px;
 }

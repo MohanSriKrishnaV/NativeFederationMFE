@@ -19,7 +19,6 @@ export class AppComponent {
     this.triggerNotification()
   }
   triggerNotification() {
-    this.notificationService.notify('Welcome to MFE1', 'This is a notification from MFE1 application.');
-  }
+    }
   title = 'mfe1';
 }

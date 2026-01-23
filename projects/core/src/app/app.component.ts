@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterOutlet } from '@angular/router';
-
-import { ButtonComponent } from 'shared-ui';
 import { LayoutComponent } from './core/layout/layout.component';
+import { Subject } from 'rxjs';
 
+import { NotificationOrchestratorService } from './core/services/notif-orchestratot.service';
 
 
 @Component({
@@ -16,19 +16,43 @@ import { LayoutComponent } from './core/layout/layout.component';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent  implements OnInit, OnDestroy {
+  private destroy$ = new Subject<void>();
     
 
   title = 'core';
-  showMenu = false;
+  showMenu:boolean=true;
 
-  constructor(private router: Router){ {
-
+  constructor(private router: Router,    
+    // private notificationService: PopUpService,
+        // private eventBus: EventBusService
+){ {
+    console.log(localStorage.getItem('token'));
 
     localStorage.getItem('token') ? this.showMenu = true : this.showMenu = false;
     if(!localStorage.getItem('token')){
-      this.router.navigate(['home']);
+      this.router.navigate(['login']);
     }
-   }
+    
+
+    const x=setInterval(() => {
+      if(localStorage.getItem('token')){
+        this.showMenu = true;
+        clearInterval(x);
+      } 
+    }, 1000);
   }
+}
+ private _notificationOrchestrator =
+    inject(NotificationOrchestratorService);
+
+ ngOnInit() {
+    this._notificationOrchestrator.init();
+  }
+
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
+
 }

@@ -1,12 +1,13 @@
 import { inject } from '@angular/core';
 import { NotificationService } from './notification.service';
 import { EventBusService } from 'shared-events';
+import { AppEventType } from 'shared-events';
 
 export function registerNotificationListeners() {
   const eventBus = inject(EventBusService);
   const notificationService = inject(NotificationService);
 
-  eventBus.on<any>('ORDER_CREATED').subscribe(event => {
+  eventBus.on<any>(AppEventType.ORDER_CREATED).subscribe(event => {
     notificationService.add({
       id: crypto.randomUUID(),
       message: `Order ${event.payload.orderId} created`,
@@ -16,7 +17,7 @@ export function registerNotificationListeners() {
     });
   });
 
-  eventBus.on<any>('ORDER_APPROVED').subscribe(event => {
+  eventBus.on<any>(AppEventType.ORDER_APPROVED).subscribe(event => {
     notificationService.add({
       id: crypto.randomUUID(),
       message: `Order ${event.payload.orderId} approved`,
@@ -26,7 +27,7 @@ export function registerNotificationListeners() {
     });
   });
 
-  eventBus.on<any>('LOW_STOCK_ALERT').subscribe((event: { payload: { sku: any; }; }) => {
+  eventBus.on<any>(AppEventType.LOW_STOCK_ALERT).subscribe((event:any) => {
     notificationService.add({
       id: crypto.randomUUID(),
       message: `Low stock for ${event.payload.sku}`,

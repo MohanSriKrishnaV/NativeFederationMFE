@@ -1,0 +1,90 @@
+   .orders-page {
+      padding: 16px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+    }
+
+    th, td {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+      text-align: left;
+    }
+
+    th {
+      background: #f1f1f1;
+    }
+
+    .empty {
+      color: #777;
+      margin-top: 16px;
+    }
+
+    .status {
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .created {
+      background: #e3f2fd;
+      color: #1565c0;
+    }
+
+    .approved {
+      background: #e8f5e9;
+      color: #2e7d32;
+    }
+
+    .cancelled {
+      background: #ffebee;
+      color: #c62828;
+    }
+
+
+    .orders-page {
+  padding: 16px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+}
+
+th, td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.status {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status.created {
+  background: #e3f2fd;
+  color: #1565c0;
+}
+
+.status.approved {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.status.cancelled {
+  background: #ffebee;
+  color: #c62828;
+}
+
+.empty {
+  margin-top: 20px;
+  color: #777;
+}

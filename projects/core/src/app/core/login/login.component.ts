@@ -33,14 +33,15 @@ private auth: AuthService,
     debugger
   }
 
-  login() {
+ async login() {
     if (!this.username.trim()) return;
 
     this.loading = true;
 
     // simulate async login
+       await    this.auth.login(this.username);
+
     setTimeout(() => {
-      this.auth.login(this.username);
       this.router.navigate(['/home']);
     }, 500);
   }

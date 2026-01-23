@@ -5,15 +5,12 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-orders-sub-menu',
-  standalone: true,
-  imports: [CommonModule, RouterLink, RouterLinkActive],
   templateUrl: './orders-sub-menu.component.html',
   styleUrls: ['./orders-sub-menu.component.scss']
 })
 export class OrdersSubMenuComponent {
  menuItems: OrdersSubMenuItem[] = [
-    { label: 'Orders List', path: 'OrdersList' },
-    { label: 'Create Order', path: 'create' }
-    // add more dynamically if needed
+ { label: 'Orders', path: 'OrdersList', icon: 'list_alt' },
+    { label: 'Create Order', path: 'createOrders', icon: 'add_circle' }
   ];
 }

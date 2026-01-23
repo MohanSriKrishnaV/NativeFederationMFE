@@ -1,5 +1,7 @@
-import { NgModule } from '@angular/core';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { SharedEventsComponent } from './shared-events.component';
+import { EventBusService } from './event-bus.service';
+import { SnackBarService } from './notifications/snackBar.service';
 
 
 
@@ -13,4 +15,11 @@ import { SharedEventsComponent } from './shared-events.component';
     SharedEventsComponent
   ]
 })
-export class SharedEventsModule { }
+export class SharedEventsModule { 
+    static forRoot(): ModuleWithProviders<SharedEventsModule> {
+    return {
+      ngModule: SharedEventsModule,
+      providers: [EventBusService] // ✅ singleton instance
+    };
+}
+}

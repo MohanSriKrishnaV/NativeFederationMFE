@@ -15,9 +15,12 @@ export class AuthService {
     return !!this.tokenSignal();
   }
 
-  login(username: string) {
+   login(username: string): Promise<void> {
+return new Promise((resolve) => {
     const token = btoa(username + '-' + Date.now()); // mock token
     localStorage.setItem('token', token);
+    console.log(localStorage.getItem("token"));
+    
     this.tokenSignal.set(token);
 
     const user: User = {
@@ -27,6 +30,8 @@ export class AuthService {
     };
     localStorage.setItem('user', JSON.stringify(user));
     this.userSignal.set(user);
+    resolve()
+    })
   }
 
   logout() {

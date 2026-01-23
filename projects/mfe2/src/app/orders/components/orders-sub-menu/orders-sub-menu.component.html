@@ -1,7 +1,15 @@
-   <nav>
-      <ul class="submenu">
-        <li *ngFor="let item of menuItems">
-<a [routerLink]="'/orders/' + item.path" routerLinkActive="true">{{ item.label }}</a>
-        </li>
-      </ul>
-    </nav>
+<mat-toolbar color="primary" class="orders-submenu">
+  <ng-container *ngFor="let item of menuItems">
+    <button
+      mat-button
+      [routerLink]="['/orders', item.path]"
+      routerLinkActive="active-link"
+      [routerLinkActiveOptions]="{ exact: false }"
+    >
+      <mat-icon *ngIf="item.icon" class="icon">
+        {{ item.icon }}
+      </mat-icon>
+      {{ item.label }}
+    </button>
+  </ng-container>
+</mat-toolbar>

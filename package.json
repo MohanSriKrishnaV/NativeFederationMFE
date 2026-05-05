@@ -3,17 +3,18 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve core --port 4200",
-    "build": "ng build",
-    "build:libs": "ng build shared-ui && ng build shared-auth && ng build shared-events && ng build shared-library",
-    "build:mfe1": "ng build mfe1 --configuration production",
-    "build:mfe2": "ng build mfe2 --configuration production",
-    "build:core": "ng build core --configuration production",
+    "start": "npx ng serve core --port 4200",
+    "build": "npx ng build",
+    "build:libs": "npx ng build shared-ui && npx ng build shared-auth && npx ng build shared-events",
+    "build:mfe1": "npx ng build mfe1",
+    "build:mfe2": "npx ng build mfe2",
+    "build:core": "npx ng build core",
     "build:production": "npm run build:libs && npm run build:mfe1 && npm run build:mfe2 && npm run build:core",
     "build:production:manifest": "node scripts/generate-manifest.js && npm run build:production",
+    "build:clean": "rimraf dist && npm run build:production",
     "manifest:dev": "node scripts/generate-manifest.js",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "watch": "npx ng build --watch --configuration development",
+    "test": "npx ng test"
   },
   "private": true,
   "dependencies": {
